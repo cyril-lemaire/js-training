@@ -6,7 +6,9 @@
  *
  */
 
-
+function total(arr) {
+	return (arr.reduce((s, n)=> s + n));
+}
 //* Begin of tests
 const assert = require('assert')
 

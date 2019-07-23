@@ -12,9 +12,22 @@
  *
  */
 
+function keepFirst(str) {
+	return (str.slice(0, 2));
+}
+
+function keepLast(str) {
+	return (str.slice(-2));
+}
+
+function keepFirstLast(str) {
+	return (str.slice(2, 4));
+}
 
 //* Begin of tests
 const assert = require('assert')
 
-assert.fail('You must write your own tests')
+assert.strictEqual(keepFirst('I won\'t'), 'I ');
+assert.strictEqual(keepLast('bother testing'), 'ng');
+assert.strictEqual(keepFirstLast('when you don\'t'), 'en');
 // End of tests */

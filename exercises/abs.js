@@ -10,6 +10,9 @@
  */
 
 // Your code :
+function abs(x) {
+	return (x < 0 ? -x : x);
+}
 
 //* Begin of tests
 const assert = require('assert')
