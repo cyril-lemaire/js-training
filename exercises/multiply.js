@@ -42,7 +42,7 @@ function divide(a, b) {
 
 function multiply(a, b) {
 	let r = 0;
-	let bNeg = (b < 0);
+	let bNeg = (b < 0 || b == -0);
 	let b2 = bNeg ? -b : b;
 	let a2 = a;
 	while (b2 > 0) {
@@ -55,7 +55,7 @@ function multiply(a, b) {
 		b2 += b2 + twoB2;
 		a2 = divide(a2, 10);
 	}
-	return (bNeg ? -r : r);
+	return (bNeg && a !== 0 ? -r : r);
 }
 
 //* Begin of tests
@@ -68,8 +68,8 @@ assert.strictEqual(multiply(0, 0), 0)
 assert.strictEqual(multiply(123, -22), -2706)
 assert.strictEqual(multiply(-22, 123), -2706)
 assert.strictEqual(multiply(-22, -123), 2706)
-assert.strictEqual(Math.round(multiply(-22.5, -123.97864132), 8), Math.round(-22.5 * -123.97864132, 8));
-assert.strictEqual(Math.round(multiply(-0.00000001, 123), 8), Math.round(-0.00000001 * 123, 8))
+assert.strictEqual(Math.round(multiply(-22.5, -123.97864132), 5), Math.round(-22.5 * -123.97864132, 5));
+assert.strictEqual(Math.round(multiply(-0.00015, 123), 5), Math.round(-0.00015 * 123, 5))
 assert.strictEqual(typeof multiply, 'function')
 assert.strictEqual(multiply.length, 2)
 assert.strictEqual(multiply.toString().includes('Math.imul'), false)
