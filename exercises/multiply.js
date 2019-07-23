@@ -42,7 +42,7 @@ function divide(a, b) {
 
 function multiply(a, b) {
 	let r = 0;
-	let bNeg = (b < 0 || b == -0);
+	let bNeg = (b < 0);
 	let b2 = bNeg ? -b : b;
 	let a2 = a;
 	while (b2 > 0) {
